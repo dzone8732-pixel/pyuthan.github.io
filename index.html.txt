@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepal Police Contact Directory</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; padding: 20px; text-align: center; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #003366; }
+        input[type="text"] { width: 90%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px; }
+        .contact-card { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }
+        .name { font-weight: bold; color: #333; }
+        .phone { color: #0066cc; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Lumbini Province Police Battalion</h1>
+    <h3>Khajura, Banke</h3>
+    <p>Police Contact Directory</p>
+    
+    <!-- सर्च गर्ने बक्स -->
+    <input type="text" id="searchBox" onkeyup="filterContacts()" placeholder="कर्मचारीको नाम टाइप गर्नुहोस्...">
+
+    <!-- सम्पर्क सूचीहरू -->
+    <div id="contactList">
+        <div class="contact-card">
+            <div class="name">राम बहादुर थापा (प्रहरी उपरीक्षक - SP)</div>
+            <div class="phone">९८५११XXXXX</div>
+        </div>
+        <div class="contact-card">
+            <div class="name">श्याम केसी (प्रहरी निरीक्षक - Inspector)</div>
+            <div class="phone">९८५१२XXXXX</div>
+        </div>
+        <div class="contact-card">
+            <div class="name">सिता आचार्य (प्रहरी नायब उपरीक्षक - DSP)</div>
+            <div class="phone">९८५१३XXXXX</div>
+        </div>
+    </div>
+</div>
+
+<script>
+// टाइप गर्दा नाम फिल्टर गर्ने जाभास्क्रिप्ट (JavaScript) कोड
+function filterContacts() {
+    let input = document.getElementById('searchBox').value.toLowerCase();
+    let cards = document.getElementsByClassName('contact-card');
+    
+    for (let i = 0; i < cards.length; i++) {
+        let name = cards[i].getElementsByClassName('name')[0].innerText.toLowerCase();
+        if (name.includes(input)) {
+            cards[i].style.display = "";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
